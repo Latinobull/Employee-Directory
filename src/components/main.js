@@ -1,6 +1,7 @@
 import React from 'react';
+import Header from './header';
 function Main() {
-  return <h1>Hello World</h1>;
+  return <Header />;
 }
 
 export default Main;
