@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Search from './Search';
 import Table from './Table';
+import API from '../utils/API';
 
 class Main extends Component {
   state = {
@@ -19,6 +20,13 @@ class Main extends Component {
     });
     this.filteredSearch();
   };
+
+  componentDidMount() {
+    API.search().then(res => {
+      this.setState({ employees: res.data.results });
+      console.log(res);
+    });
+  }
 
   render() {
     return (

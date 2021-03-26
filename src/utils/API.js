@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
   search: function () {
-    return axios.gets(
+    return axios.get(
       'https://randomuser.me/api/?results=20&nat=us&exc=gender,location,registered,nat&noinfo'
     );
   },
