@@ -4,6 +4,13 @@ import Search from './Search';
 import Table from './Table';
 
 class Main extends Component {
+  state = {
+    employees: [],
+    filteredEmployees: [],
+    search: '',
+    filtered: false,
+  };
+
   render() {
     return (
       <div>
