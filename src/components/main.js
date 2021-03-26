@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './header';
-import Search from './search';
-import Table from './table';
+import Header from './Header';
+import Search from './Search';
+import Table from './Table';
 function Main() {
   return (
     <div>
