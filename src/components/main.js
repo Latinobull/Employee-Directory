@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Search from './Search';
 import Table from './Table';
+import Row from './Row';
 import API from '../utils/API';
 
 class Main extends Component {
@@ -33,7 +34,18 @@ class Main extends Component {
       <div>
         <Header />
         <Search onChange={this.handleInputChange} value={this.state.search} />
-        <Table />
+        <Table
+          tableRow={this.state.employees.map(employee => (
+            <Row
+              image={
+                <img
+                  src={employee.picture.thumbnail}
+                  alt={`${employee.name.first} ${employee.name.last}`}
+                />
+              }
+            />
+          ))}
+        />
       </div>
     );
   }
