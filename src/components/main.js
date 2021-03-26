@@ -32,7 +32,7 @@ class Main extends Component {
     return (
       <div>
         <Header />
-        <Search />
+        <Search onChange={this.handleInputChange} value={this.state.search} />
         <Table />
       </div>
     );

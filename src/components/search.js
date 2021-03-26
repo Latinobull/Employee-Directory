@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Search() {
+function Search(props) {
   return (
     <div className="container">
       <div className="searchbox">
@@ -15,7 +15,8 @@ function Search() {
             type="search"
             placeholder="name"
             aria-label="Search"
-            onChange
+            onChange={props.onChange}
+            value={props.value}
           />
         </div>
       </div>
