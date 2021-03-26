@@ -11,6 +11,15 @@ class Main extends Component {
     filtered: false,
   };
 
+  handleInputChange = e => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+      filtered: true,
+    });
+    this.filteredSearch();
+  };
+
   render() {
     return (
       <div>
