@@ -43,6 +43,11 @@ class Main extends Component {
                   alt={`${employee.name.first} ${employee.name.last}`}
                 />
               }
+              name={`${employee.name.first} ${employee.name.last}`}
+              phone={employee.cell}
+              email={employee.email}
+              key={employee.id.value}
+              dob={employee.dob.date}
             />
           ))}
         />
