@@ -2,7 +2,7 @@ import React from 'react';
 
 function Table(props) {
   return (
-    <table className="uk-table">
+    <table className="uk-table uk-table-hover uk-table-responsive">
       <thead>
         <tr>
           <th scope="col">Image</th>
