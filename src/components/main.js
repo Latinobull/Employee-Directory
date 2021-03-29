@@ -29,6 +29,18 @@ class Main extends Component {
     });
   }
 
+  filteredSearch = () => {
+    let { search, employees } = this.state;
+    let filteredEmployees = employees.filter(value => {
+      return (
+        value.name.first.toLowerCase().includes(search.toLowerCase()) ||
+        value.name.last.toLowerCase().includes(search.toLowerCase()) ||
+        value.email.toLowerCase().includes(search.toLowerCase())
+      );
+    });
+    this.setState({ filteredEmployees });
+  };
+
   render() {
     return (
       <div>
