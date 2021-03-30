@@ -13,8 +13,8 @@ class Main extends Component {
     filtered: false,
   };
 
-  handleInputChange = e => {
-    const { name, value } = e.target;
+  handleInputChange = event => {
+    const { name, value } = event.target;
     this.setState({
       [name]: value,
       filtered: true,
@@ -23,10 +23,9 @@ class Main extends Component {
   };
 
   componentDidMount() {
-    API.search().then(res => {
-      this.setState({ employees: res.data.results });
-      console.log(res);
-    });
+    API.searchEmployees()
+      .then(res => this.setState({ employees: res.data.results }))
+      .catch(err => console.log(err));
   }
 
   filteredSearch = () => {
@@ -46,23 +45,43 @@ class Main extends Component {
       <div>
         <Header />
         <Search onChange={this.handleInputChange} value={this.state.search} />
-        <Table
-          tableRow={this.state.employees.map(employee => (
-            <Row
-              image={
-                <img
-                  src={employee.picture.thumbnail}
-                  alt={`${employee.name.first} ${employee.name.last}`}
-                />
-              }
-              name={`${employee.name.first} ${employee.name.last}`}
-              phone={employee.cell}
-              email={employee.email}
-              key={employee.id.value}
-              dob={employee.dob.date}
-            />
-          ))}
-        />
+        {!this.state.filtered ? (
+          <Table
+            tableRow={this.state.employees.map(employee => (
+              <Row
+                image={
+                  <img
+                    src={employee.picture.thumbnail}
+                    alt={`${employee.name.first} ${employee.name.last}`}
+                  />
+                }
+                name={`${employee.name.first} ${employee.name.last}`}
+                phone={employee.cell}
+                email={employee.email}
+                key={employee.id.value}
+                dob={employee.dob.date}
+              />
+            ))}
+          />
+        ) : (
+          <Table
+            tableRow={this.state.filteredEmployees.map(employee => (
+              <Row
+                image={
+                  <img
+                    src={employee.picture.thumbnail}
+                    alt={`${employee.name.first} ${employee.name.last}`}
+                  />
+                }
+                name={`${employee.name.first} ${employee.name.last}`}
+                phone={employee.cell}
+                email={employee.email}
+                dob={employee.dob.date}
+                key={employee.id.value}
+              />
+            ))}
+          />
+        )}
       </div>
     );
   }

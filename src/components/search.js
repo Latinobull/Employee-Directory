@@ -2,19 +2,18 @@ import React from 'react';
 
 function Search(props) {
   return (
-    <div className="uk-search-input uk-text-center">
-      <div>
+    <form className="uk-search uk-search-default">
+      {/* <div>
         <span>Search for a specific Employee</span>
-      </div>
+      </div> */}
       <input
-        className="uk-search-input uk-text-center"
+        className="uk-search-input"
         type="search"
-        placeholder="name"
-        aria-label="Search"
+        placeholder="search"
         onChange={props.onChange}
         value={props.value}
       />
-    </div>
+    </form>
   );
 }
 
