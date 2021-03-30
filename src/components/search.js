@@ -8,7 +8,7 @@ function Search(props) {
       </div> */}
       <input
         className="uk-search-input"
-        type="search"
+        type="text"
         placeholder="search"
         onChange={props.onChange}
         value={props.value}

@@ -14,9 +14,9 @@ class Main extends Component {
   };
 
   handleInputChange = event => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     this.setState({
-      [name]: value,
+      search: value,
       filtered: true,
     });
     this.filteredSearch();
