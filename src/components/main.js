@@ -4,6 +4,7 @@ import Search from './Search';
 import Table from './Table';
 import Row from './Row';
 import API from '../utils/API';
+import Moment from 'moment';
 
 class Main extends Component {
   state = {
@@ -20,6 +21,11 @@ class Main extends Component {
       filtered: true,
     });
     this.filteredSearch();
+  };
+
+  DOB = dob => {
+    const newDOB = Moment(dob).format('LL');
+    return newDOB;
   };
 
   componentDidMount() {
@@ -59,7 +65,7 @@ class Main extends Component {
                 phone={employee.cell}
                 email={employee.email}
                 key={employee.id.value}
-                dob={employee.dob.date}
+                dob={this.DOB(employee.dob.date)}
               />
             ))}
           />
@@ -76,7 +82,7 @@ class Main extends Component {
                 name={`${employee.name.first} ${employee.name.last}`}
                 phone={employee.cell}
                 email={employee.email}
-                dob={employee.dob.date}
+                dob={this.DOB(employee.dob.date)}
                 key={employee.id.value}
               />
             ))}
